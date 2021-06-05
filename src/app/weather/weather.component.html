@@ -1,0 +1,22 @@
+<div class="jumbotron">
+    <h1 class="display-4">Weather Forecast</h1>
+    <p class="lead">Location: {{weatherData?.location?.city + ", " + weatherData?.location?.country}}</p>
+    <p class="lead">Current Weather Description: {{weatherData?.current_observation?.condition?.text}}</p>
+    <p class="lead">Current Temperature: {{weatherData?.current_observation?.condition?.temperature}} °F</p>
+    <p class="lead">Today's high temperature: {{weatherData?.forecasts[0]?.high}} °F</p>
+    <p class="lead">Today's low temperature: {{weatherData?.forecasts[0]?.low}} °F</p>
+    <p>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">View More</button>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <p class="lead">Wind Speed: {{weatherData?.current_observation?.wind?.speed}} mph</p>
+            <p class="lead">Humidity: {{weatherData?.current_observation?.atmosphere?.humidity}} %</p>
+            <p class="lead">Pressure: {{weatherData?.current_observation?.atmosphere?.pressure}} inchHg</p>
+            <p class="lead">Sunrise Time: {{weatherData?.current_observation?.astronomy?.sunrise}}</p>
+            <p class="lead">Sunset Time: {{weatherData?.current_observation?.astronomy?.sunset}}</p>
+        </div>
+      </div>
+  </div>
+<app-chart *ngIf="weatherData?.forecasts" [data]="weatherData?.forecasts"></app-chart>
+  
