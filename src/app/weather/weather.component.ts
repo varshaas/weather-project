@@ -12,9 +12,8 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit(): void {
     this.http.get('assets/weather.json').subscribe((data: any) => {
-        console.log(data);
-        this.weatherData = data
-      });
+      this.weatherData = data
+    });
   }
 
 }
